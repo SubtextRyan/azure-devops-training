@@ -31,11 +31,8 @@ jobs:
           chmod +x mvnw
           ./mvnw clean verify
         displayName: 'TESTS: backend'
-      - script: ./mvnw com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test'
-        displayName: 'TESTS: frontend'
       - script: ./mvnw verify -Pprod -DskipTests
         displayName: 'TESTS: packaging'
-
       - script: ./mvnw package -Pprod -DskipTests
         displayName: 'BUILD: creating production build'
       - task: CopyFiles@2
